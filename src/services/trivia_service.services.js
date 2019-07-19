@@ -5,8 +5,15 @@ export default class TriviaService {
     axios.defaults.baseURL = "http://jservice.io/api/"
   }
 
-  getAll() {
-    return axios.get('random?count=30');
+  getTrivias(id) {
+    const endpoint = id ?
+      `category?id=${id}` :
+      'random?count=30'
+    return axios.get(endpoint);
+  }
+
+  getCategories() {
+    return axios.get('categories?count=10')
   }
 }
 
