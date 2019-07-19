@@ -19,8 +19,8 @@ export const ChuckStoreModule = {
   },
 
   actions: {
-    chuckJoke(context) {
-      chuckServices.getRandomJoke()
+    chuckJoke(context, payload) {
+      return chuckServices.getRandomJoke(payload)
         .then(response => {
           // console.log('MODULE', response)
           context.commit('setRandomJoke', response);
